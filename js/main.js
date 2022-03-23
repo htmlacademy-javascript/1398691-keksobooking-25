@@ -153,4 +153,4 @@ const creatOffers = () => {
   return data;
 };
 
-creatOffers(COUNT);
+creatOffers();
