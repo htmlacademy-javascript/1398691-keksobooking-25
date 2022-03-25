@@ -55,13 +55,13 @@ const PHOTO = [
 
 const COUNT = 10;
 
-const latMin  = 35.65000;
+const LAT_MIN  = 35.65000;
 
-const LatMax =  35.70000;
+const LAT_MAX =  35.70000;
 
-const lngMin = 139.70000;
+const LNG_MIN = 139.70000;
 
-const lngMax = 139.80000;
+const LNG_MAX = 139.80000;
 
 const getRandomFloat = (min, max, maxDigits) => {
 
@@ -94,8 +94,8 @@ const getRandomArray = (array) => {
 };
 
 const creatOffer = (index) => {
-  const lat = getRandomFloat(latMin, LatMax, 5);
-  const lng = getRandomFloat(lngMin, lngMax, 5);
+  const lat = getRandomFloat(LAT_MIN, LAT_MAX, 5);
+  const lng = getRandomFloat(LNG_MIN, LNG_MAX, 5);
   let avatarIndex = index + 1;
 
   if (avatarIndex < 10){
@@ -108,7 +108,7 @@ const creatOffer = (index) => {
     },
     offer: {
       title: getRandomArrayElement(TITLES),
-      address: `lat:${lat}, lng:${lng}`,
+      address: `${lat}, ${lng}`,
       price: getRandomPositiveInteger(1, 2000),
       type: getRandomArrayElement(TYPE_HOTEL),
       rooms: getRandomPositiveInteger(1, 5),
