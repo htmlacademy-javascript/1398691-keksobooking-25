@@ -53,22 +53,15 @@ const PHOTO = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
 
-// Функция, возвращающая случайное целое число из переданного диапазона включительно.
+const COUNT = 10;
 
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
+const latMin  = 35.65000;
 
-  if (min >= max || min < 0) {
-    throw new Error('Введите корректное значене: min >= 0 и max > min');
-  }
+const LatMax =  35.70000;
 
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+const lngMin = 139.70000;
 
-getRandomInt();
-
-// Функция, возвращающая случайное число с плавающей точкой из переданного диапазона включительно.
+const lngMax = 139.80000;
 
 const getRandomFloat = (min, max, maxDigits) => {
 
@@ -92,38 +85,30 @@ const getRandomPositiveInteger = (a, b) => {
 const getRandomArrayElement = (elements) => elements[getRandomPositiveInteger(0, elements.length - 1)];
 
 
-const getRandomArray = (newRandomArray) => {
-  const maxLength = newRandomArray.length;
-  const lengthOfArray = getRandomPositiveInteger(1, maxLength);
-  const array = [];
+const getRandomArray = (array) => {
+  const maxLength = array.length;
+  const random = getRandomPositiveInteger(0, maxLength-1);
+  const newRandomArray = array.slice(0, random);
 
-  for (let i = 0; i < lengthOfArray; i++) {
-    const indexOfEl = getRandomPositiveInteger(0, 5);
-    const el = newRandomArray[indexOfEl];
-
-    if (!array.includes(el)) {
-      array.push(el);
-    }
-  }
-  return array;
+  return newRandomArray;
 };
 
 const creatOffer = (index) => {
-  const lat = getRandomFloat(35.65000, 35.70000, 5);
-  const lng = getRandomFloat(139.70000, 139.80000, 5);
-  if (index < 9){
-    index = '0' + (index + 1);
+  const lat = getRandomFloat(latMin, LatMax, 5);
+  const lng = getRandomFloat(lngMin, lngMax, 5);
+  let avatarIndex = index + 1;
+
+  if (avatarIndex < 10){
+    avatarIndex = `0${avatarIndex}`;
   }
-  else {
-    index = index + 1;
-  }
+
   return {
     author: {
-      avatar: 'img/avatars/user' + index + '.png'
+      avatar: `img/avatars/user${avatarIndex}.png`,
     },
     offer: {
       title: getRandomArrayElement(TITLES),
-      address: lat, lng,
+      address: `lat:${lat}, lng:${lng}`,
       price: getRandomPositiveInteger(1, 2000),
       type: getRandomArrayElement(TYPE_HOTEL),
       rooms: getRandomPositiveInteger(1, 5),
@@ -141,8 +126,6 @@ const creatOffer = (index) => {
   };
 };
 
-const COUNT = 10;
-
 const creatOffers = () => {
   const data = [];
 
@@ -153,4 +136,4 @@ const creatOffers = () => {
   return data;
 };
 
-creatOffers();
+creatOffers(COUNT);
