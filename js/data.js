@@ -40,22 +40,22 @@ const FEATURES = [
 ];
 
 const DESCRIPTION = [
-  'description 1',
-  'description 2',
-  'description 3',
-  'description 4',
-  'description 5',
-  'description 6',
-  'description 7',
-  'description 8',
-  'description 9',
-  'description 10'
+  'Описание 1',
+  'Описание 2',
+  'Описание 3',
+  'Описание 4',
+  'Описание 5',
+  'Описание 6',
+  'Описание 7',
+  'Описание 8',
+  'Описание 9',
+  'Описание 10'
 ];
 
 const PHOTO = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
-  'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
+  'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg'
 ];
 
 const COUNT = 10;
@@ -68,7 +68,7 @@ const LNG_MIN = 139.70000;
 
 const LNG_MAX = 139.80000;
 
-const creatOffer = (index) => {
+const createOffer = (index) => {
   const lat = getRandomFloat(LAT_MIN, LAT_MAX, 5);
   const lng = getRandomFloat(LNG_MIN, LNG_MAX, 5);
   let avatarIndex = index + 1;
@@ -84,7 +84,7 @@ const creatOffer = (index) => {
     offer: {
       title: getRandomArrayElement(TITLES),
       address: `${lat}, ${lng}`,
-      price: getRandomPositiveInteger(1, 2000),
+      price: getRandomPositiveInteger(5000, 50000),
       type: getRandomArrayElement(TYPE_HOTEL),
       rooms: getRandomPositiveInteger(1, 5),
       guests: getRandomPositiveInteger(1, 5),
@@ -101,14 +101,29 @@ const creatOffer = (index) => {
   };
 };
 
-const creatOffers = () => {
+const createOffers = () => {
   const data = [];
 
   for (let i = 0; i < COUNT; i++) {
-    const offer = creatOffer(i);
+    const offer = createOffer(i);
     data.push(offer);
   }
   return data;
 };
 
-export {creatOffers};
+/*
+const featuresContainer = document.querySelector('.popup__features');
+const featureList = featuresContainer.querySelectorAll('.popup__feature');
+
+featureList.forEach((featureListItem) => {
+  const popupFeature = FEATURES.some(
+    (feature) => featureListItem.classList.contains(`popup__feature--${feature}`),
+  );
+
+  if (!popupFeature) {
+    featureListItem.remove();
+  }
+});
+*/
+
+export {createOffers};

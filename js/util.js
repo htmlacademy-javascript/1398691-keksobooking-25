@@ -29,7 +29,14 @@ const getRandomArray = (array) => {
   return newRandomArray;
 };
 
-export {getRandomPositiveInteger};
-export {getRandomArrayElement};
-export {getRandomFloat};
-export {getRandomArray};
+/*
+const photoContainer = document.querySelector('.popup__photos');
+const fullPhoto = document.querySelector('.popup__photo');
+const popupPhoto;
+for (let i = 0; i < photoContainer.length; i++) {
+  popupPhoto = fullPhoto.src;
+};
+*/
+
+export {getRandomPositiveInteger, getRandomArrayElement, getRandomFloat, getRandomArray};
+
