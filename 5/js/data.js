@@ -111,19 +111,4 @@ const createOffers = () => {
   return data;
 };
 
-/*
-const featuresContainer = document.querySelector('.popup__features');
-const featureList = featuresContainer.querySelectorAll('.popup__feature');
-
-featureList.forEach((featureListItem) => {
-  const popupFeature = FEATURES.some(
-    (feature) => featureListItem.classList.contains(`popup__feature--${feature}`),
-  );
-
-  if (!popupFeature) {
-    featureListItem.remove();
-  }
-});
-*/
-
-export {createOffers};
+export { createOffers };
