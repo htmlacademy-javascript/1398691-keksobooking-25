@@ -29,7 +29,4 @@ const getRandomArray = (array) => {
   return newRandomArray;
 };
 
-export {getRandomPositiveInteger};
-export {getRandomArrayElement};
-export {getRandomFloat};
-export {getRandomArray};
+export {getRandomPositiveInteger, getRandomArrayElement, getRandomFloat, getRandomArray};
