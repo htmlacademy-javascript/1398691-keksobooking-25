@@ -1,6 +1,6 @@
 import { createOffers } from './data.js';
 import { renderPopup } from './popup.js';
-
+import './form.js';
 
 const cardAd = document.querySelector('.map');
 const similarCardElement = cardAd.querySelector('.map__canvas');
